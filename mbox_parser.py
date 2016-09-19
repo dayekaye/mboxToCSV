@@ -23,5 +23,6 @@ def date_splitter(message):
 writer = csv.writer(open("clean_mail.csv", "wb"))
 for message in mailbox.mbox('mailbox2.mbox'):
         body = more_payloads(message)
-        date = date_splitter(message)
-	writer.writerow([message['subject'], message['from'], date[0][0], date[0][1], message['to'],message['x-gmail-labels'],message['x-autoreply'],body])
+        #date = date_splitter(message)
+        #date[0][0], date[0][1], <-place this in writerow() for date parser
+	writer.writerow([message['subject'], message['from'], message['to'],message['x-gmail-labels'],message['x-autoreply'],body])
